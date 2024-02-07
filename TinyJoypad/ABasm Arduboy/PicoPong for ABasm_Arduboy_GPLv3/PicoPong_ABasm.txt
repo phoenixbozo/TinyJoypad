@@ -1,0 +1,166 @@
+           >>>>>  PicoPong for ABasm on ARDUBOY  GPL v3 <<<<<
+                     Programmer: Daniel C 2023
+               Contact EMAIL: electro_l.i.b@tinyjoypad.com
+                      https://WWW.TINYJOYPAD.COM
+          https://sites.google.com/view/arduino-collection
+
+ PicoPong is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ Reference in file "COPYING.txt".
+
+******************************************************************************
+  Note: This program is designed to work with the ABasm software on Arduboy.
+                      https://github.com/fuopy/ABasm
+        To run the game, you need to enter the entire code present in the
+        PicoPong_ABasm.txt file into the ABasm interface on Arduboy.
+******************************************************************************
+
+00:FillScreen    01
+02:UpdateDisplay
+04:FillScreen    00
+06:UpdateDisplay
+08:SkipIfDown    ... ... ... ... ... .O.
+0A:JumpTo        00
+0C:FillScreen    00
+0E:Set      'r0' 1A
+10:Set      'r1' 20
+12:Set      'r2' 45
+14:Set      'r3' 20
+16:Set      'r4' 01
+18:Set      'r5' 01
+1A:FillScreen    00
+1C:SkipIfUp      .^. ... ... ... ... ...
+1E:JumpTo        46
+20:SkipIfUp      ... ... ... .v. ... ...
+22:JumpTo        4C
+24:JumpTo        AC
+26:JumpTo        32
+28:JumpTo        52
+2A:JumpTo        54
+2C:JumpTo        DE
+2E:UpdateDisplay
+30:JumpTo        1A
+32:Set      'r7' 04
+34:Set      'r6' r0
+36:Add To   'r6' 0E
+38:Skip !=  'r0' r6
+3A:JumpTo        42
+3C:DrawPixel     r7  r0  01
+3E:Add To   'r0' 01
+40:JumpTo        38
+42:Subtr.To 'r0' 0E
+44:JumpTo        28
+46:Skip  =  'r0' 02
+48:Subtr.To 'r0' 01
+4A:JumpTo        20
+4C:Skip  =  'r0' 30
+4E:Add To   'r0' 01
+50:JumpTo        24
+52:JumpTo        2A
+54:Skip !=  'r4' 00
+56:JumpTo        5A
+58:JumpTo        5E
+5A:Subtr.To 'r2' 01
+5C:JumpTo        60
+5E:Add To   'r2' 01
+60:Skip !=  'r5' 00
+62:JumpTo        66
+64:JumpTo        6A
+66:Subtr.To 'r3' 01
+68:JumpTo        6C
+6A:Add To   'r3' 01
+6C:Skip !=  'r2' 04
+6E:JumpTo        72
+70:JumpTo        80
+72:GetPixel      r2  r3  r7
+74:Skip =   'r7' 01
+76:JumpTo        00
+78:Set      'r7' 20
+7A:PlayTone      r7  r7  r6
+7C:Set      'r4' 01
+7E:Add To   'r2' 01
+80:Skip !=  'r2' 7B
+82:JumpTo        86
+84:JumpTo        94
+86:GetPixel      r2  r3  r7
+88:Skip =   'r7' 01
+8A:JumpTo        00
+8C:Set      'r7' 1A
+8E:PlayTone      r7  r7  r6
+90:Set      'r4' 00
+92:Subtr.To 'r2' 01
+94:Skip !=  'r3' 04
+96:JumpTo        9A
+98:JumpTo        9E
+9A:Set      'r5' 01
+9C:Add To   'r3' 01
+9E:Skip !=  'r3' 3B
+A0:JumpTo        A4
+A2:JumpTo        A8
+A4:Set      'r5' 00
+A6:Subtr.To 'r3' 01
+A8:DrawPixel     r2  r3  01
+AA:JumpTo        2C
+AC:Set      'r7' 50
+AE:Skip <   'r2' r7
+B0:JumpTo        B4
+B2:JumpTo        C8
+B4:Skip >   'r3' r1
+B6:JumpTo        BA
+B8:JumpTo        BE
+BA:Skip =   'r1' 0C
+BC:Subtr.To 'r1' 01
+BE:Skip <   'r3' r1
+C0:JumpTo        C4
+C2:JumpTo        C8
+C4:Skip =   'r1' 3A
+C6:Add To   'r1' 01
+C8:Set      'r7' 7B
+CA:Subtr.To 'r1' 0A
+CC:Set      'r6' r1
+CE:Add To   'r6' 0E
+D0:Skip !=  'r1' r6
+D2:JumpTo        DA
+D4:DrawPixel     r7  r1  01
+D6:Add To   'r1' 01
+D8:JumpTo        D0
+DA:Subtr.To 'r1' 04
+DC:JumpTo        26
+DE:Set      'r6' 00
+E0:Skip !=  'r6' 80
+E2:JumpTo        2E
+E4:Add To   'r6' 08
+E6:Set      'r7' 00
+E8:DrawPixel     r7  r6  01
+EA:DrawPixel     r6  r7  01
+EC:Set      'r7' 3F
+EE:DrawPixel     r6  r7  01
+F0:Set          'r7' 7F
+F2:DrawPixel     r7  r6  01
+F4:Set          'r7' 40
+F6:DrawPixel     r7  r6  01
+F8:JumpTo        E0
+FA:NoOp
+FC:NoOp
+FE:NoOp
+
+
+
+
+
+
+
+
+
+
+

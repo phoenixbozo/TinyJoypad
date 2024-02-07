@@ -1,0 +1,155 @@
+           >>>>>  PicoBlock for ABasm on ARDUBOY  GPL v3 <<<<<
+                     Programmer: Daniel C 2024
+               Contact EMAIL: electro_l.i.b@tinyjoypad.com
+                      https://WWW.TINYJOYPAD.COM
+          https://sites.google.com/view/arduino-collection
+
+ PicoBlock is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ Reference in file "COPYING.txt".
+
+******************************************************************************
+  Note: This program is designed to work with the ABasm software on Arduboy.
+                      https://github.com/fuopy/ABasm
+        To run the game, you need to enter the entire code present in the
+        PicoBlock_ABasm.txt file into the ABasm interface on Arduboy.
+******************************************************************************
+
+00:FillScreen    01
+02:UpdateDisplay
+04:FillScreen    00
+06:UpdateDisplay
+08:SkipIfUp      ... ... ... ... ... .O.
+0A:JumpTo        0E
+0C:JumpTo        00
+0E:FillScreen    00
+10:Set      'r1' 15
+12:Set      'r2' 4A
+14:Set      'r0' 36
+16:Skip !=  'r1' 69
+18:JumpTo        26
+1A:Add To   'r1' 01
+1C:DrawPixel     r0  r1  01
+1E:DrawPixel     r2  r1  01
+20:Set      'r3' 3F
+22:DrawPixel     R1  R3  01
+24:JumpTo        16
+26:JumpTo        D8
+28:Set      'r2' FD
+2A:Set      'r1' 17
+2C:Set      'r6' 00
+2E:Set      'r0' 40
+30:SkipIfUp      ... .>. ... ... ... ...
+32:JumpTo        4C
+34:SkipIfUp      ... ... .<. ... ... ...
+36:JumpTo        5A
+38:JumpTo        82
+3A:Set      'r7' 3E
+3C:JumpTo        68
+3E:WaitForFrame
+40:UpdateDisplay
+42:Skip !=  'r6' EE
+44:JumpTo        26
+46:Set      'r7' 4A
+48:JumpTo        68
+4A:JumpTo        30
+4C:WaitForFrame
+4E:Add To   'r0' 01
+50:Set      'r5' 54
+52:JumpTo        A6
+54:Skip !=  'r6' 01
+56:Subtr.To 'r0' 01
+58:JumpTo        34
+5A:WaitForFrame
+5C:Subtr.To 'r0' 01
+5E:Set      'r5' 62
+60:JumpTo        A6
+62:Skip !=  'r6' 01
+64:Add To   'r0' 01
+66:JumpTo        38
+68:DrawPixel     r0  r1  03
+6A:Add To   'r0' 01
+6C:DrawPixel     r0  r1  03
+6E:Add To   'r1' 01
+70:DrawPixel     r0  r1  03
+72:Subtr.To 'r0' 02
+74:Subtr.To 'r1' 01
+76:DrawPixel     r0  r1  03
+78:Subtr.To 'r1' 01
+7A:DrawPixel     r0  r1  03
+7C:Add To   'r0' 01
+7E:Add To   'r1' 01
+80:Jump Via      r7
+82:SkipIfDown    ... ... ... .v. ... ...
+84:Skip !=  'r2' 30
+86:Jump To       8C
+88:Add To   'r2' 01
+8A:JumpTo        3A
+8C:Add To   'r1' 01
+8E:Set      'r2' 00
+90:Set      'r5' 94
+92:JumpTo        A6
+94:Skip !=  'r6' 01
+96:JumpTo        9A
+98:JumpTo        3A
+9A:Subtr.To 'r1' 01
+9C:Set      'r6' EE
+9E:Set      'r4' 18
+A0:Skip >   'r1' r4
+A2:JumpTo        00
+A4:JumpTo        3A
+A6:Set      'r6' 00
+A8:Subtr.To 'r0' 01
+AA:Subtr.To 'r1' 01
+AC:GetPixel      r0  r1  r7
+AE:Skip !=  'r7' 01
+B0:Set      'r6' 01
+B2:Add To   'r1' 01
+B4:GetPixel      r0  r1  r7
+B6:Skip !=  'r7' 01
+B8:Set      'r6' 01
+BA:Add To   'r0' 01
+BC:GetPixel      r0  r1  r7
+BE:Skip !=  'r7' 01
+C0:set      'r6' 01
+C2:Add To   'r0' 01
+C4:GetPixel      r0  r1  r7
+C6:Skip !=  'r7' 01
+C8:Set      'r6' 01
+CA:Add To   'r1' 01
+CC:GetPixel      r0  r1  r7
+CE:Skip !=  'r7' 01
+D0:Set      'r6' 01
+D2:Subtr.To 'r0' 01
+D4:Subtr.To 'r1' 01
+D6:Jump Via      r5
+D8:Set      'r3' 18
+DA:Add To   'r3' 01
+DC:Set      'r2' 36
+DE:GetPixel      r2  r3  r7
+E0:Skip !=  'r7' 00
+E2:JumpTo        E6
+E4:JumpTo        EC
+E6:Skip !=  'r3' 3E
+E8:JumpTo        28
+EA:JumpTo        DA
+EC:Skip =   'r2' 4A
+EE:JumpTo        F2
+F0:JumpTo        F6
+F2:Add To   'r2' 01
+F4:JumpTo        DE
+F6:PlayTone      r0  r0  r6
+F8:WaitForFrame
+FA:PlayTone      r0  r0  r6
+FC:WatForFrame
+FE:JumpTo        0E

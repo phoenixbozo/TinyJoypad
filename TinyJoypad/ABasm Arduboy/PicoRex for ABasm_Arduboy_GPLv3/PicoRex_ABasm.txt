@@ -1,0 +1,160 @@
+           >>>>>  PicoRex for ABasm on ARDUBOY  GPL v3 <<<<<
+                     Programmer: Daniel C 2023
+               Contact EMAIL: electro_l.i.b@tinyjoypad.com
+                      https://WWW.TINYJOYPAD.COM
+          https://sites.google.com/view/arduino-collection
+
+ PicoRex is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ Reference in file "COPYING.txt".
+
+******************************************************************************
+  Note: This program is designed to work with the ABasm software on Arduboy.
+                      https://github.com/fuopy/ABasm
+        To run the game, you need to enter the entire code present in the
+          PicoRex_ABasm.txt file into the ABasm interface on Arduboy.
+******************************************************************************
+
+00:FillScreen    00
+02:UpdateDisplay
+04:FillScreen    01
+06:UpdateDisplay
+08:SkipifUp      ... ... ... ... ... .O.
+0A:JumpTo        0E
+0C:JumpTo        00
+0E:SkipIfDown    ... ... ... ... ... .O.
+10:JumpTo        14
+12:JumpTo        0E
+14:Set      'r2' 00
+16:Set      'r3' 3A
+18:Set      'r4' 00
+1A:Set      'r6' 00
+1C:Set      'r7' F0
+1E:Set      'r5' r7
+20:FillScreen    00
+22:Set      'r0' 00
+24:Set      'r1' 3F
+26:Skip !=  'r0' 7F
+28:JumpTo        30
+2A:DrawPixel r0  r1  01
+2C:Add To   'r0' 01
+2E:JumpTo        26
+30:SkipIfUp      .^. .>. .<. .v. .O. .O. 
+32:JumpTo        36
+34:JumpTo        42
+36:Skip =   'r2' 00
+38:JumpTo        42
+3A:Skip !=  'r3' 3A
+3C:JumpTo        40
+3E:JumpTo        5A
+40:Set      'r2' 01
+42:Skip =   'r2' 01
+44:JumpTo        54
+46:JumpTo        48
+48:PlayTone  r2  r2  r7
+4A:Skip !=  'r3' 2E
+4C:JumpTo        54
+4E:JumpTo        50
+50:Subtr.To 'r3' 02
+52:JumpTo        56
+54:Set      'r2' 00
+56:Skip !=  'r2' 00
+58:JumpTo        5A
+5A:Skip =   'r3' 3A
+5C:Add To   'r3' 01
+5E:Set      'r0' 20
+60:Set      'r1' r3
+62:DrawPixel r0  r1  01
+64:Subtr.To 'r0' 01
+66:DrawPixel r0  r1  01
+68:Add To   'r1' 01
+6A:DrawPixel r0  r1  01
+6C:Subtr.To 'r0' 01
+6E:Add To   'r1' 01
+70:DrawPixel r0  r1  01
+72:Subtr.To 'r0' 01
+74:DrawPixel r0  r1  01
+76:Add To   'r1' 01
+78:DrawPixel r0  r1  01
+7A:Subtr.To 'r0' 01
+7C:DrawPixel r0  r1  01
+7E:Subtr.To 'r0' 01
+80:Subtr.To 'r1' 01
+82:DrawPixel r0  r1  01
+84:Add To   'r0' 05
+86:Subtr.to 'r1' 01
+88:DrawPixel r0  r1  01
+8A:Add To   'r1' 03
+8C:Subtr.To 'r0' 03
+8E:DrawPixel r0  r1  01
+90:Set      'r1' 39
+92:Skip !=  'r1' 3F
+94:JumpTo        9C
+96:Add To   'r1' 01
+98:DrawPixel r5  r1  01
+9A:JumpTo        92
+9C:UpdateDisplay
+9E:Set      'r0' 21
+A0:Skip >   'r5' r0
+A2:JumpTo        A6
+A4:JumpTo        AC
+A6:Set      'r0' 1C
+A8:Skip <   'r5' r0
+AA:JumpTo        AE
+AC:JumpTo        C2
+AE:Set      'r1' 36
+B0:Skip >   'r3' r1
+B2:JumpTo        C2
+B4:Set      'r0' FF
+B6:Skip !=  'r0' 00
+B8:JumpTo        00
+BA:PlayTone  r0  r0  r7
+BC:UpdateDisplay
+BE:Subtr.To 'r0' 01
+C0:JumpTo        B6
+C2:UpdateDisplay
+C4:Skip !=  'r5' 00
+C6:JumpTo        CA
+C8:JumpTo        DE
+CA:Set      'r5' r7
+CC:Skip !=  'r6' 04
+CE:JumpTo        D4
+D0:Add To   'r6' 01
+D2:JumpTo        DE
+D4:Set      'r6' 00
+D6:Set      'r0' 80
+D8:Skip >   'r7' r0
+DA:JumpTo        E0
+DC:Subtr.To 'r7' 10
+DE:JumpTo        E0
+E0:Subtr.To 'r5' 02
+E2:Set      'r0' D0
+E4:Skip >   'r7' r0
+E6:Subtr.To 'r5' 01
+E8:Set      'r0' B0
+EA:Skip >   'r7' r0
+EC:Subtr.To 'r5' 01
+EE:Set      'r0' 90
+F0:Skip >   'r7' r0
+F2:Subtr.To 'r5' 01
+F4:Set      'r0' E1
+F6:Skip >   'r7' r0
+F8:Subtr.To 'r5' 01
+FA:JumpTo        20
+FC:NoOp
+FE:NoOp
+
+
+
+
+
