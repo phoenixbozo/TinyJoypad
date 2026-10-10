@@ -1,0 +1,60 @@
+================================================================================
+TinyJoypad Emulator - Third-Party Libraries Licenses
+================================================================================
+
+This document lists the main external libraries used by the TinyJoypad Emulator
+and their respective licenses.
+
+
+1. SDL2 (Simple DirectMedia Layer)
+----------------------------------
+License     : zlib License
+Copyright   : Copyright (C) 1997-2026 Sam Lantinga <slouken@libsdl.org>
+Website     : https://www.libsdl.org/
+License URL : https://www.libsdl.org/license.php
+              https://github.com/libsdl-org/SDL/blob/main/LICENSE.txt
+
+Summary:
+SDL 2.0 and newer are released under the zlib license.
+It is a permissive free software license that allows commercial use,
+modification and redistribution with very few restrictions.
+
+
+2. simavr
+----------------------------------
+License     : GNU General Public License version 3 (GPLv3)
+              (or later versions at your option)
+Copyright   : Copyright 2008-2024 Michel Pollet <buserror@gmail.com>
+              and contributors
+Website     : https://github.com/buserror/simavr
+License URL : https://www.gnu.org/licenses/gpl-3.0.html
+              https://github.com/buserror/simavr (see COPYING file)
+
+Summary:
+simavr is free software distributed under the terms of the GNU General
+Public License as published by the Free Software Foundation, either
+version 3 of the License, or (at your option) any later version.
+
+
+3. Standard C Library (libc)
+----------------------------------
+License     : Depends on the system (usually LGPL or GPL for glibc on Linux,
+              other licenses on other platforms)
+Note        : Not bundled with the emulator. Uses the system's C library
+              (stdio, stdlib, string, etc.).
+
+
+================================================================================
+Notes
+================================================================================
+
+- The TinyJoypad Emulator itself is released under the GNU General Public
+  License version 3 (GPLv3).
+
+- Because simavr is licensed under GPLv3, the entire emulator must also
+  be distributed under a compatible license (GPLv3).
+
+- Always include a copy of the full license texts when distributing
+  the software.
+
+================================================================================ 
