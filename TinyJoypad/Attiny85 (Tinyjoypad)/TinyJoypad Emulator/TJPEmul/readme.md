@@ -101,9 +101,8 @@ See the [GNU GPLv3 License](https://www.gnu.org/licenses/gpl-3.0.html) for more 
 ## Credits
 
 - **Électro L.I.B / TinyJoypad** – Concept, direction, and testing
+- **Électro L.I.B / TinyJoypad** – Original TinyJoypad hardware and games
 - **Grok (xAI)** – Code, written under the direction and with the assistance of Électro L.I.B
-- **TinyJoypad community** – Original TinyJoypad hardware and games
 - **Michel Pollet (buserror) and the simavr contributors** – For creating and maintaining simavr, a core foundation of this emulator
 - **SDL2 contributors** – For the SDL2 library used by this emulator
-
-For any questions or support, feel free to contact via email.
+- **Willems Davy ([@joyrider3774](https://joyrider3774.github.io/))** – For identifying and helping fix critical race conditions in the audio thread under Windows

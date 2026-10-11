@@ -34,7 +34,13 @@
  * 
  * Thank you for creating such an exceptional piece of software!
  * =================================================================        
+ *
+ * Additional thanks to Willems Davy (@joyrider3774) for reporting
+ * and helping fix critical race conditions in the audio thread
+ * under Windows (MSYS2 + simavr 1.7).
  */
+ 
+
  
 #include <stdio.h>
 #include <stdlib.h>
@@ -153,10 +159,16 @@ static int load_rom(const char *path)
 
     SDL_PauseAudio(1);
 
-    if (board.avr) {
-        avr_terminate(board.avr);
-        board.avr = NULL;
-    }
+	if (board.avr) {
+    /* Correction race condition (audio thread) :
+     * On invalide le pointeur AVANT de libérer le MCU.
+     * Merci à Willems Davy (@joyrider3774) pour avoir signalé
+     * ce bug critique de concurrence.
+     */
+		avr_t *old = board.avr;
+		board.avr = NULL;
+		avr_terminate(old);
+	}
 
     avr_t *avr = avr_make_mcu_by_name("attiny85");
     if (!avr) {
@@ -245,8 +257,12 @@ static void audio_callback(void *userdata, Uint8 *stream, int len)
     Sint16 *out = (Sint16 *)stream;
     int samples = len / sizeof(Sint16);
 
-    /* Si on veut quitter, on sort immédiatement sans toucher au MCU */
-    if (force_quit || !running) {
+    /* Protection contre le démarrage trop précoce de l'audio
+     * et contre les accès concurrentiels pendant un rechargement de ROM.
+     * Merci à Willems Davy (@joyrider3774) pour le diagnostic précis
+     * (SDL_PauseAudio(0) démarre le thread avant la création de l'AVR).
+     */
+    if (force_quit || !running || !b || !b->avr) {
         memset(stream, 0, len);   /* silence */
         return;
     }
