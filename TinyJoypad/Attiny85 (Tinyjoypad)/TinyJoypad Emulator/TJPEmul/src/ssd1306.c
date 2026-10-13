@@ -35,7 +35,7 @@
  * Thank you for creating such an exceptional piece of software!
  * =================================================================        
  */
- 
+
 #include "ssd1306.h"
 #include <string.h>
 

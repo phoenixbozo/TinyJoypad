@@ -35,7 +35,7 @@
  * Thank you for creating such an exceptional piece of software!
  * =================================================================        
  */
- 
+
 #include "i2c_bb.h"
 #include <string.h>
 

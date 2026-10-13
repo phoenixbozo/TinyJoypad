@@ -35,7 +35,7 @@
  * Thank you for creating such an exceptional piece of software!
  * =================================================================        
  */
- 
+
 #ifndef BOARD_H
 #define BOARD_H
 

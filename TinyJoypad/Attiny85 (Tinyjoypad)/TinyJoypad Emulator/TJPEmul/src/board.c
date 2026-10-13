@@ -131,7 +131,7 @@ void board_run_cycles(board_t *b, uint32_t cycles)
         uint8_t port = b->avr->data[0x38]; // PORTB
 
         b->spk_level = ((ddr & (1 << PIN_SOUND)) && (port & (1 << PIN_SOUND))) ? 1 : 0;
-
+		b->spk_acc += b->spk_level;
         uint8_t pinb = 0;
         for (int p = 0; p < 6; p++) {
             if (read_pin_level(b, p))

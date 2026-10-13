@@ -35,7 +35,7 @@
  * Thank you for creating such an exceptional piece of software!
  * =================================================================        
  */
- 
+
 #ifndef I2C_BB_H
 #define I2C_BB_H
 

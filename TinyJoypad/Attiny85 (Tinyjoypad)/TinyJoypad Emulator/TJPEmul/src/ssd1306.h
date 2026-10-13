@@ -35,7 +35,7 @@
  * Thank you for creating such an exceptional piece of software!
  * =================================================================        
  */
- 
+
 #ifndef SSD1306_H
 #define SSD1306_H
 
